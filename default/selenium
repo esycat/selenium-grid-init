@@ -1,0 +1,27 @@
+#
+# Configuration for Selenium Grid Hub and Node servers.
+#
+
+# Service name and role values are expected to be passed from the init script.
+SERVICE_NAME=${SERVICE_NAME:-selenium}
+SERVICE_ROLE=${SERVICE_ROLE:-hub}
+
+# The system user that will be used to run Selenium Server.
+SELENIUM_USER="${SERVICE_NAME}"
+
+# Home directory where Selenium Server jar is located.
+SELENIUM_HOME="/opt/${SERVICE_NAME}"
+
+# The directory where Hub's and Nodes' config files are located.
+SELENIUM_CONF="/etc/${SERVICE_NAME}"
+
+# Log file location.
+SELENIUM_LOG="/var/log/${SERVICE_NAME}/${SERVICE_ROLE}.log"
+
+SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_ROLE}.json"
+
+PIDFILE=/var/run/${SERVICE_NAME}/${SERVICE_ROLE}.pid
+
+# Java executable and JMV parameters
+JAVA_HOME=/usr/bin
+JVM_ARGS="-Xmx256m"
