@@ -1,4 +1,4 @@
-# Selenium Grid Init Scripts and Configuration
+# Selenium Grid Init Scripts
 
 A pair of simple init scripts to run Selenium Grid as Hub or Node server instances.
 
