@@ -2,11 +2,14 @@
 
 A pair of simple init scripts to run Selenium Grid as Hub or Node server instances.
 
-There's another similar project that was implemented earlier:
-https://github.com/feniix/selenium-grid-startup
-but I needed to implement the scripts and arrange the files differently.
+You can find [another similar project](https://github.com/feniix/selenium-grid-startup) that was implemented earlier and provides a more complicated init script.
+I needed to implement the scripts and arrange the files differently.
 
-Default configuration assumes a number of standards directories which have to be created.
+Default configuration assumes that the Selenium Grid server runs as `selenium` user;
+hub and node configs, logs and pid files are located in standards directories, which have to be created.
+This configuration can be changed in `/etc/default/selenium`.
+
+JRE should be installed: either `openjdk-7-jre` or [`oracle-java7-jre`](http://webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html).
 
 The scripts were tested on Ubuntu 12.04 and 13.10.
 
@@ -50,5 +53,3 @@ To setup the service to run automatically on server bootup:
 ```bash
 sudo update-rc.d selenium-hub defaults
 ```
-
-The service configuration can be found in `/etc/default/selenium`.
