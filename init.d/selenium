@@ -19,6 +19,7 @@ start() {
 }
 
 stop() {
+    logger "Stopping Selenium Grid instance..."
     start-stop-daemon $DAEMON_ARGS --stop --retry=TERM/30/KILL/5
     RETVAL="$?"
     rm -f $PIDFILE
@@ -26,7 +27,7 @@ stop() {
 }
 
 status() {
-    echo "Lalala"
+    echo "Not implemented yet." # TODO
 }
 
 case $COMMAND in
