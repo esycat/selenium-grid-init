@@ -34,7 +34,12 @@ stop() {
 }
 
 status() {
-    echo "Not implemented yet." # TODO
+    if [ -e $PIDFILE ]; then
+        status_of_proc -p $PIDFILE $DAEMON "$SERVICE_NAME process" && exit 0 || exit $?
+    else
+        log_daemon_msg "$NAME Process is not running"
+        log_end_msg 0
+    fi
 }
 
 case $COMMAND in
