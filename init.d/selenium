@@ -8,6 +8,9 @@ COMMAND="$1"
 . /lib/init/vars.sh
 . /lib/lsb/init-functions
 
+mkdir -p "$LOGFILE_DIR" "$PIDFILE_DIR"
+chown -R $SELENIUM_USER "$LOGFILE_DIR" "$PIDFILE_DIR"
+
 DAEMON_ARGS="--quiet --pidfile $PIDFILE --user $SELENIUM_USER"
 DAEMON_CMD="$JAVA_HOME/java -- $JVM_ARGS -jar ${SELENIUM_HOME}/server-standalone.jar ${SELENIUM_ARGS}"
 

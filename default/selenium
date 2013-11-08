@@ -16,11 +16,13 @@ SELENIUM_HOME="/opt/${SERVICE_NAME}"
 SELENIUM_CONF="/etc/${SERVICE_NAME}"
 
 # Log file location.
-SELENIUM_LOG="/var/log/${SERVICE_NAME}/${SERVICE_ROLE}.log"
+LOGFILE_DIR="/var/log/${SERVICE_NAME}"
+LOGFILE="${LOGFILE_DIR}/${SERVICE_ROLE}.log"
+
+PIDFILE_DIR="/var/run/${SERVICE_NAME}"
+PIDFILE="${PIDFILE_DIR}/${SERVICE_ROLE}.pid"
 
 SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_ROLE}.json"
-
-PIDFILE=/var/run/${SERVICE_NAME}/${SERVICE_ROLE}.pid
 
 # Java executable and JMV parameters
 JAVA_HOME=/usr/bin
