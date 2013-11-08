@@ -18,8 +18,8 @@ start() {
     chown -R $SELENIUM_USER "$LOGFILE_DIR" "$PIDFILE_DIR"
 
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --chuid $SELENIUM_USER --exec $DAEMON_CMD
-
     RETVAL="$?"
+
     return "$RETVAL"
 }
 
@@ -27,9 +27,10 @@ stop() {
     logger "Stopping Selenium Grid instance..."
 
     start-stop-daemon $DAEMON_ARGS --stop --retry=TERM/30/KILL/5
-
     RETVAL="$?"
+
     rm -f $PIDFILE
+
     return "$RETVAL"
 }
 
@@ -37,7 +38,7 @@ status() {
     if [ -e $PIDFILE ]; then
         status_of_proc -p $PIDFILE $DAEMON "$SERVICE_NAME process" && exit 0 || exit $?
     else
-        log_daemon_msg "$NAME Process is not running"
+        log_daemon_msg "$SERVICE_NAME: Process is not running."
         log_end_msg 0
     fi
 }
