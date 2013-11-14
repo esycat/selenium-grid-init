@@ -17,6 +17,8 @@ start() {
     mkdir -p "$LOGFILE_DIR" "$PIDFILE_DIR"
     chown -R $SELENIUM_USER "$LOGFILE_DIR" "$PIDFILE_DIR"
 
+    export DISPLAY
+
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --chuid $SELENIUM_USER --exec $DAEMON_CMD
     RETVAL="$?"
 
