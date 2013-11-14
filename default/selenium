@@ -27,3 +27,5 @@ SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${S
 # Java executable and JMV parameters
 JAVA_HOME=/usr/bin
 JVM_ARGS="-Xmx256m"
+
+DISPLAY=":0"
