@@ -1,6 +1,6 @@
 {
     "configuration": {
-        "hubHost"       : "selenium.wm.local",
+        "hubHost"       : "selenium.redlounge.io",
         "hubPort"       : 4444,
         "proxy"         : "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
         "register"      : true,
