@@ -24,7 +24,7 @@ PIDFILE="${PIDFILE_DIR}/${SERVICE_ROLE}.pid"
 
 SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_ROLE}.json"
 
-# Java executable and JMV parameters
+# Java executable and JVM parameters
 JAVA_HOME=/usr/bin
 JVM_ARGS="-Xmx256m"
 
