@@ -1,5 +1,5 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DEFAULTS="/etc/default/${SERVICE_NAME}"
+DEFAULTS="/etc/default/selenium"
 INITSCRIPT="$(basename "$0")"
 JOB="${INITSCRIPT%.sh}"
 COMMAND="$1"
@@ -38,9 +38,9 @@ stop() {
 
 status() {
     if [ -e $PIDFILE ]; then
-        status_of_proc -p $PIDFILE $DAEMON "$SERVICE_NAME process" && exit 0 || exit $?
+        status_of_proc -p $PIDFILE $DAEMON "$JOB process" && exit 0 || exit $?
     else
-        log_daemon_msg "$SERVICE_NAME: Process is not running."
+        log_daemon_msg "$JOB: Process is not running."
         log_end_msg 0
     fi
 }
