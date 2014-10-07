@@ -1,5 +1,5 @@
 {
-    "host"                        : "selenium.wm.local",
+    "host"                        : "0.0.0.0",
     "port"                        : 4444,
     "newSessionWaitTimeout"       : -1,
     "servlets"                    : [],
