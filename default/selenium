@@ -4,10 +4,15 @@
 
 # Service name and role values are expected to be passed from the init script.
 SERVICE_NAME=${SERVICE_NAME:-selenium}
+SERVICE_CONFIG=${SERVICE_CONFIG:-hub}
 SERVICE_ROLE=${SERVICE_ROLE:-hub}
 
+# DISPLAY PORT
+DISPLAY_PORT=${DISPLAY_PORT:-99}
+SCREEN=${SCREEN:-0}
+
 # The system user that will be used to run Selenium Server.
-SELENIUM_USER="${SERVICE_NAME}"
+SELENIUM_USER="ubuntu"
 
 # Home directory where Selenium Server jar is located.
 SELENIUM_HOME="/opt/${SERVICE_NAME}"
@@ -17,15 +22,16 @@ SELENIUM_CONF="/etc/${SERVICE_NAME}"
 
 # Log file location.
 LOGFILE_DIR="/var/log/${SERVICE_NAME}"
-LOGFILE="${LOGFILE_DIR}/${SERVICE_ROLE}.log"
+LOGFILE="${LOGFILE_DIR}/${SERVICE_CONFIG}.log"
 
-PIDFILE_DIR="/var/run/${SERVICE_NAME}"
-PIDFILE="${PIDFILE_DIR}/${SERVICE_ROLE}.pid"
+PIDFILE_DIR="/var/log/${SERVICE_NAME}"
+PIDFILE="${PIDFILE_DIR}/${SERVICE_CONFIG}.pid"
+XVFB_PID_FILE="${PIDFILE_DIR}/xvfb_${SERVICE_CONFIG}.pid"
 
-SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_ROLE}.json"
+SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_CONFIG}.json"
 
 # Java executable and JVM parameters
 JAVA_HOME=/usr/bin
 JVM_ARGS="-Xmx256m"
 
-DISPLAY=":0"
+DISPLAY=":$DISPLAY_PORT.$SCREEN"

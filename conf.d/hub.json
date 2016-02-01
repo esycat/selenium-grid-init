@@ -1,6 +1,6 @@
 {
     "host"                        : "0.0.0.0",
-    "port"                        : 4444,
+    "port"                        : 5555,
     "newSessionWaitTimeout"       : -1,
     "servlets"                    : [],
     "prioritizer"                 : null,
@@ -9,6 +9,6 @@
     "nodePolling"                 : 5000,
     "cleanUpCycle"                : 5000,
     "timeout"                     : 300000,
-    "browserTimeout"              : 0,
+    "browserTimeout"              : 300,
     "maxSession"                  : 8
 }
