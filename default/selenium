@@ -4,8 +4,8 @@
 
 # Service name and role values are expected to be passed from the init script.
 SERVICE_NAME=${SERVICE_NAME:-selenium}
+SERVICE_CONFIG=${SERVICE_CONFIG:-hub}
 SERVICE_ROLE=${SERVICE_ROLE:-hub}
-SERViCE_ROLE_=${SERVICE_ROLE_:-hub}
 
 # DISPLAY PORT
 DISPLAY_PORT=${DISPLAY_PORT:-99}
@@ -22,13 +22,13 @@ SELENIUM_CONF="/etc/${SERVICE_NAME}"
 
 # Log file location.
 LOGFILE_DIR="/var/log/${SERVICE_NAME}"
-LOGFILE="${LOGFILE_DIR}/${SERVICE_ROLE}.log"
+LOGFILE="${LOGFILE_DIR}/${SERVICE_CONFIG}.log"
 
 PIDFILE_DIR="/var/run/${SERVICE_NAME}"
-PIDFILE="${PIDFILE_DIR}/${SERVICE_ROLE}.pid"
-XVFB_PID_FILE="${PIDFILE_DIR}/xvfb_${SERVICE_ROLE}.pid"
+PIDFILE="${PIDFILE_DIR}/${SERVICE_CONFIG}.pid"
+XVFB_PID_FILE="${PIDFILE_DIR}/xvfb_${SERVICE_CONFIG}.pid"
 
-SELENIUM_ARGS="-role ${SERVICE_ROLE_} -${SERVICE_ROLE_}Config ${SELENIUM_CONF}/${SERVICE_ROLE}.json"
+SELENIUM_ARGS="-role ${SERVICE_ROLE} -${SERVICE_ROLE}Config ${SELENIUM_CONF}/${SERVICE_CONFIG}.json"
 
 # Java executable and JVM parameters
 JAVA_HOME=/usr/bin

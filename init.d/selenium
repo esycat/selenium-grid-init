@@ -15,12 +15,12 @@ XVFB_CMD="/usr/bin/Xvfb"
 XVFB_OPTS=" :${DISPLAY_PORT} -screen $SCREEN 1366x768x24"
 
 start() {
-    logger "Starting Selenium Grid in ${SERVICE_ROLE_} mode..."
+    logger "Starting Selenium Grid in ${SERVICE_ROLE} mode..."
 
-    start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --exec $XVFB_CMD -- $XVFB_OPTS 
+    start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --exec $XVFB_CMD -- $XVFB_OPTS
 
     export DISPLAY
-    
+
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --chuid $SELENIUM_USER --exec $DAEMON_CMD
     RETVAL="$?"
 
