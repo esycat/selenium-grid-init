@@ -19,7 +19,7 @@ start() {
 
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --exec $XVFB_CMD -- $XVFB_OPTS 
 
-    export :$DISPLAY_PORT.$SCREEN
+    export DISPLAY
     
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --chuid $SELENIUM_USER --exec $DAEMON_CMD
     RETVAL="$?"
