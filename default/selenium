@@ -12,7 +12,7 @@ DISPLAY_PORT=${DISPLAY_PORT:-99}
 SCREEN=${SCREEN:-0}
 
 # The system user that will be used to run Selenium Server.
-SELENIUM_USER="${SERVICE_NAME}"
+SELENIUM_USER="ubuntu"
 
 # Home directory where Selenium Server jar is located.
 SELENIUM_HOME="/opt/${SERVICE_NAME}"
