@@ -9,16 +9,18 @@ COMMAND="$1"
 . /lib/lsb/init-functions
 
 DAEMON_ARGS="--quiet --pidfile $PIDFILE --user $SELENIUM_USER"
+XVFB_DAEMON_ARGS="--quiet --pidfile $XVFB_PID_FILE --user $SELENIUM_USER"
 DAEMON_CMD="$JAVA_HOME/java -- $JVM_ARGS -jar ${SELENIUM_HOME}/server-standalone.jar ${SELENIUM_ARGS}"
+XVFB_CMD="/usr/bin/Xvfb"
+XVFB_OPTS=" :${DISPLAY_PORT} -screen $SCREEN 1366x768x24"
 
 start() {
     logger "Starting Selenium Grid in ${SERVICE_ROLE} mode..."
 
-    mkdir -p "$LOGFILE_DIR" "$PIDFILE_DIR"
-    chown -R $SELENIUM_USER "$LOGFILE_DIR" "$PIDFILE_DIR"
+    start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --exec $XVFB_CMD -- $XVFB_OPTS 
 
-    export DISPLAY
-
+    export =:$DISPLAY_PORT.$SCREEN
+    
     start-stop-daemon $DAEMON_ARGS --start --background --make-pidfile --chuid $SELENIUM_USER --exec $DAEMON_CMD
     RETVAL="$?"
 
