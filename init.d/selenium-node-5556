@@ -15,5 +15,7 @@ set -e
 
 SERVICE_NAME="selenium"
 SERVICE_ROLE="node_5556"
+DISPLAY_PORT=10
+SCREEN=1
 
 . $(dirname "$0")/$SERVICE_NAME
