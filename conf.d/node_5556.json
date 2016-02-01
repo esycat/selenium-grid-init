@@ -1,0 +1,18 @@
+{
+    "configuration": {
+        "hubHost"       : "selenium.sistemsista.com",
+        "hubPort"       : 5555,
+        "proxy"         : "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+        "register"      : true,
+        "registerCycle" : 5000,
+        "maxSession"    : 2,
+        "port"          : 5556
+    },
+    "capabilities": [
+        {
+            "browserName"      : "chrome",
+            "maxInstances"     : 2,
+            "seleniumProtocol" : "WebDriver"
+        }
+    ]
+}

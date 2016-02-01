@@ -1,0 +1,19 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          selenium-grid
+# Required-Start:    $network $remote_fs $local_fs $syslog
+# Required-Stop:     $network $remote_fs $local_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop Selenium Grid server
+### END INIT INFO
+# upstart-job
+#
+# Symlink target for initscripts that have been converted to Upstart.
+
+set -e
+
+SERVICE_NAME="selenium"
+SERVICE_ROLE="node_5556"
+
+. $(dirname "$0")/$SERVICE_NAME
